@@ -1,0 +1,52 @@
+\section{Предел функции}
+\begin{definition}
+	Проколотой $\delta$-окрестностью точки $a$ называется $(a - \delta, a) \cup (a, a + \delta)$.
+\end{definition}
+
+\begin{definition}
+	(По Коши). $\lim_{x \to a} f(x) = A \Leftrightarrow (\forall \varepsilon > 0) (\exists \delta > 0) (\forall x \in U_\delta(a)) \; f(x) \in U_\varepsilon(A)$. 
+\end{definition}
+
+\begin{definition}
+	(По Гейне). $\lim_{x \to a} f(x) = A \Leftrightarrow (\forall \{x_n\} \subset X \setminus \{a\}, \lim_{x \to \infty} \{x_n\} = A) \: \lim_{x \to \infty} f(x_n) = A$.
+\end{definition}
+
+\begin{theorem}
+	Определения предела функции по Коши и по Гейне эквивалентны.
+\end{theorem}
+\begin{proof}
+	TO-DO
+\end{proof}
+
+\begin{theorem}{Свойства предела функции, связанные неравенствами.}
+	\begin{enumerate}
+		\item (Ограниченность). Если $\lim_{x \to a} = A \in \R$, то f(x) - ограничена в некоторой проколотой окрестности точки $a$ (т. е. множество значений в этой окрестности ограничено).
+		\item (Отделимость от нуля и сохранение знака). Если $\lim_{x \to a} f(x) = A \in \overline{\R}$, то $\exists C > 0$, что в некоторой проколотой окрестности точки $a$ $|f(x)| > C$ и знак f(x) тот же, что и у $A$.
+		\item (Переход к предел. неравенству). Если ($\exists \delta > 0$) ($\forall x \in U_\delta(a)$) $f(x) \le g(x)$ и $\lim_{x \to a} f(x) = A$, $\lim_{x \to a} g(x) = B$, то $A \le B$.
+		\item (Теорема о трёх функциях). Если ($\exists \delta > 0$) ($\forall x \in U_\delta(a)$) $g(x) \le f(x) \le h(x)$ и $\lim_{x \to a} g(x) = \lim_{x \to a} h(x) = A$, то $\lim_{x \to a} f(x) = A$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	TO-DO
+\end{proof}
+
+\begin{theorem}{Свойства предела функции, связанные с арифметическими операциями.}
+	Пусть $\lim_{x \to a} f(x) = A$, $\lim_{x \to a} g(x) = B$, $A, B \in \R$. Тогда:
+	\begin{enumerate}
+		\item $\lim_{x \to a} (f(x) + g(x)) = A + B$.
+		\item $\lim_{x \to a} (f(x)g(x)) = AB$.
+		\item Если $B \neq 0$, то $\lim_{x \to a} \frac{f}{g}(x) = \frac{A}{B}$.
+	\end{enumerate} 
+\end{theorem}
+\begin{proof}
+	TO-DO
+\end{proof}
+
+\begin{theorem}{Критерий Коши существования предела функции.}
+	$\exists \lim_{x \to a} f(x) \in \R$ $\Leftrightarrow$ $(\forall \varepsilon > 0) (\exists \delta > 0) (\forall x_1, x_2 \in U_\delta(a))$ $|f(x_1) - f(x_2)| < \varepsilon$.
+\end{theorem}
+\begin{proof}
+	Необходимость. $\lim_{x \to a} f(x) \Leftrightarrow (\forall \varepsilon > 0) (\exists \delta > 0) (\forall x \in U_\delta(a))$ $|f(x) - A| < \frac{\varepsilon}{2}$. $|f(x_1) - f(x_2)| \le |f(x_1) - A| + |f(x_2) - A| \le \varepsilon$.
+	
+	Достаточность. TO-DO.
+\end{proof}

@@ -1,0 +1,64 @@
+\newcommand{\dnear}{\stackrel{\circ}{U_\delta}}
+\newcommand{\enear}{U_\eps}
+\newcommand{\limit}[2]{\lim\limits_{#1 \to #2}} 
+
+\section{Предел функции}
+\begin{definition}
+	Проколотой $\delta$-окрестностью точки $a$ называется $\dnear(a) = \enear(a) \setminus \{a\} = (a - \delta, a) \cup (a, a + \delta)$.
+\end{definition}
+
+\begin{definition}
+	(По Коши). $\limit{x}{a} f(x) = A \Leftrightarrow (\forall \eps > 0) (\exists \delta > 0) (\forall x \in U_\delta(a)) \; f(x) \in \ \enear(A)$.
+\end{definition}
+
+\begin{definition}
+	(По Гейне). $\limit{x}{a} f(x) = A \Leftrightarrow (\forall \{x_n\} \subset X \setminus \{a\}, \limit{n}{\infty} x_n = a)$ $ \limit{n}{\infty} f(x_n) = A$.
+\end{definition}
+
+\begin{theorem}
+	Определения предела функции по Коши и по Гейне эквивалентны.
+\end{theorem}
+\begin{proof}
+	Докажем, что из Коши следует Гейне. Возьмем произвольную $\{x_n\} : \limit{n}{\infty} x_n = a$ $(x_n \neq a)$. Значит, $(\forall \delta > 0)(\exists N \in \N)(\forall n > N)$ $|x_n - a| < \delta$. Так как $x_n \neq a$, то $x_n\in \ \dnear(a)$. Объединяя это и опр. Коши, получаем: $(\forall \eps > 0)(\exists \delta > 0)(\exists N \in \N)(\forall n > N)$ $f(x_n) \in \ \enear(A)$. Значит, $(\forall \eps > 0)(\exists N \in \N)(\forall n > N)$ $f(x_n) \in \ \enear(A)$. Получается, что $\limit{n}{\infty} f(x_n) = A$.
+	
+	Докажем, что из Гейне следует Коши. Пусть опр. Гейне выполняется, а опр. Коши - нет. Если Коши не выполняется, то $(\exists \eps > 0)(\forall \delta > 0)(\exists x \in \ \dnear(a))$ $f(x) \notin \enear(A)$.
+	
+	$\delta := 1$. $(\exists x_1 \in \ \stackrel{\circ}{U_1}(a))$ $f(x_1) \notin \enear(A)$
+	
+	$\delta := \cfrac{1}{k}$. $(\exists x_k \in \ \stackrel{\circ}{U_{\frac{1}{k}}}(a))$ $f(x_k) \notin \enear(A)$.
+	
+	Зададим последовательность $x_n$ по тем $x_i$, которые нашли выше. Если $a \in \R$, то $(\forall n \in \N)$ $0 < |x_n - a| < \frac{1}{n}$. По свойству о зажатой последовательности $\limit{n}{\infty} x_n = a$. Следовательно, по опр. Гейне $\limit{n}{\infty} f(x_n) = A$. Вспоминаем, что $f(x_n) \notin \enear(A)$, что противоречит предыдущему утверждению. Аналогично при $a = \infty$.
+\end{proof}
+
+\begin{theorem}{Свойства предела функции, связанные неравенствами.}
+	\begin{enumerate}
+		\item (Ограниченность). Если $\limit{x}{a} = A \in \R$, то f(x) - ограничена в некоторой $\dnear(a)$ (т. е. множество значений в этой окрестности ограничено).
+		\item (Отделимость от нуля и сохранение знака). Если $\lim\limits_{x \to a} f(x) = A \in \overline{\R}$, то $\exists C > 0$, такое что $(\exists \delta > 0)$ $(\forall x \in \ \dnear(a))$ $|f(x)| > C$ и знак f(x) тот же, что и у $A$.
+		\item (Переход к предел. неравенству). Если ($\exists \delta > 0$) ($\forall x \in U_\delta(a)$) $f(x) \le g(x)$ и $\lim\limits_{x \to a} f(x) = A$, $\lim_{x \to a} g(x) = B$, то $A \le B$.
+		\item (Теорема о трёх функциях). Если ($\exists \delta > 0$) ($\forall x \in U_\delta(a)$) $g(x) \le f(x) \le h(x)$ и $\lim\limits_{x \to a} g(x) = \lim\limits_{x \to a} h(x) = A$, то $\lim\limits_{x \to a} f(x) = A$.
+	\end{enumerate}
+\end{theorem}
+\begin{proof}
+	TO-DO
+\end{proof}
+
+\begin{theorem}{Свойства предела функции, связанные с арифметическими операциями.}
+	Пусть $\lim\limits_{x \to a} f(x) = A$, $\lim_{x \to a} g(x) = B$, $A, B \in \R$. Тогда:
+	\begin{enumerate}
+		\item $\lim\limits_{x \to a} (f(x) + g(x)) = A + B$.
+		\item $\lim\limits_{x \to a} (f(x)g(x)) = AB$.
+		\item Если $B \neq 0$, то $\lim\limits_{x \to a} \frac{f}{g}(x) = \frac{A}{B}$.
+	\end{enumerate} 
+\end{theorem}
+\begin{proof}
+	TO-DO
+\end{proof}
+
+\begin{theorem}{Критерий Коши существования предела функции.}
+	$\exists \lim\limits_{x \to a} f(x) \in \R$ $\Leftrightarrow$ $(\forall \varepsilon > 0) (\exists \delta > 0) (\forall x_1, x_2 \in U_\delta(a))$ $|f(x_1) - f(x_2)| < \varepsilon$.
+\end{theorem}
+\begin{proof}
+	Необходимость. $\lim\limits_{x \to a} f(x) \Leftrightarrow (\forall \varepsilon > 0) (\exists \delta > 0) (\forall x \in U_\delta(a))$ $|f(x) - A| < \cfrac{\varepsilon}{2}$. $|f(x_1) - f(x_2)| \le |f(x_1) - A| + |f(x_2) - A| \le \varepsilon$.
+	
+	Достаточность. TO-DO.
+\end{proof}

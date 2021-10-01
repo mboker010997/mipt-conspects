@@ -1,0 +1,30 @@
+\documentclass[12pt,twoside,a4paper]{etc/note}
+\input{etc/preamble}
+
+%%% Почти всю шаблонную информацию можно менять тут
+\newcommand{\CourseDate}{\the\year{}}
+\newcommand{\CourseName}{Краткое Название}
+\renewcommand{\FullCourseNameFirstPart}{\so{Алгоритмы и структуры данных}}
+\renewcommand{\FullCourseNameSecondPart}{\so{Кучи}}
+\renewcommand{\SemesterNumber}{I СЕМЕСТР}
+\renewcommand{\SchoolName}{Физтех-школа: \textit{ФПМИ}}
+\renewcommand{\TrackName}{Направления: \textit{ПМИ}}
+\renewcommand{\LecturerInitials}{Лектор: \textit{Рухович Филипп Дмитриевич}}
+% You can add up to 4 authors (AuthorA, AuthorB, AuthorC, ...)
+\renewcommand{\AuthorA}
+    {\href{https://vk.com/kchaugi}{\textit{Ачох Дамир}}}
+%\renewcommand{\AuthorB}
+%    {\href{https://vk.com/}{\textit{Фамилия2 Имя2}}}
+% You can leave \OverleafLink or \OverleafLink empty to make them disappear from the title page, or not empty to make them appear automatically
+%\renewcommand{\OverleafLink}{}
+\renewcommand{\GithubLink}{https://github.com/MIPT-Group/Lectures_Tex_Club}
+
+\begin{document}
+    \makeTitle
+	
+	\hypertarget{intro}{}
+	\tableofcontents
+
+	\input{units/01}
+	\input{units/02}
+\end{document}
