@@ -1,0 +1,72 @@
+\section{Наивная теория множеств}
+
+\begin{definition}
+	Множество - это совокупность некоторых объектов. Каждый объект входит в множество не более 1 раза, иначе - это мультимножество.
+\end{definition}
+
+\begin{definition}
+	$x \in Y$. Объект $x$ является элементом множества $Y$.
+\end{definition}
+
+\begin{definition}
+	$X \subset Y$. Множество $X$ является подмножеством множества $Y$. $X \subset Y \stackrel{def}{\Leftrightarrow} (a \in X \Rightarrow a \in Y)$
+\end{definition}
+
+\begin{definition}
+	Множества $X$ и $Y$ равны, если $(X \subset Y) \land (Y \subset X)$.
+\end{definition}
+
+\begin{proposition}
+	Равенство множеств обладает следующими свойствами:
+	\begin{enumerate}
+		\item Рефлексивность $(X = X)$.
+		\item Транзитивность $((X = Y) \land (Y = Z) \Rightarrow X = Z)$.
+		\item Симметричность $(X = Y \Rightarrow Y = X)$.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proposition}
+	Отношение подмножества обладает следующими свойствами:
+	\begin{enumerate}
+		\item Рефлексивность $(X \subset X)$.
+		\item Транзитивность $((X \subset Y) \land (Y \subset Z) \Rightarrow X \subset Z)$.
+		\item Антисимметричность $((X \subset Y) \land (Y \subset X) \Rightarrow Y = X)$.
+	\end{enumerate}
+\end{proposition}
+
+\subsection{Операции над множествами}
+\begin{enumerate}
+	\item Объединение $A \cup B = \{x \ | \ (x \in A) \lor (x \in B)\}$
+	\item Пересечение $A \cap B = \{x \ | \ (x \in A) \land (x \in B)\}$
+	\item Разность $A \setminus B = \{x \ | \ (x \in A) \land (x \notin B)\}$
+	\item Симметрическая разность $A \triangle B = \{x \ | \ (x \in A) \oplus (x \in B)\}$
+	\item Дополнение $\overline{A} = \{x \ | \ x \notin A\}$
+\end{enumerate}
+
+\subsection{Упорядоченные пары и кортежи}
+Законы де Моргана:
+\[\overline{A \cap B} = \overline{A} \cup \overline{B}\] \[\overline{A \cup B} = \overline{A} \cap \overline{B}\]
+
+\begin{definition}
+	Неупорядоченная пара - множество из двух элементов (возможно, одинаковых). Обозначение: $\{a, b\}$.
+\end{definition}
+
+\begin{definition}
+	Упорядоченная пара - неупорядоченная пара, в которой зафиксирован первый элемент. Обозначение: $(a, b)$.
+\end{definition}
+
+\begin{definition}
+	Упрощенное определение Куратовского: $(a, b) = \{\{a, b\}, a\}$.
+\end{definition}
+
+\begin{definition}
+	Полное определение Куратовского: $(a, b) = \{\{a, b\}, \{a\}\}$.
+\end{definition}
+
+\begin{definition}
+	Декартово произведение $A \times B = \{(a, b) \ | \ (a \in A) \land (b \in B)\}$.
+\end{definition}
+
+\begin{definition}
+	Кортеж длины 0 - это $\varnothing$. Кортеж длины $(n + 1)$ - это $\{a, \{a, t\}\}$, где $t$ - кортеж длины $n$.
+\end{definition}

@@ -1,0 +1,55 @@
+\section{Отображения и соответствия}
+
+\begin{definition}
+	Соответствие из $A$ в $B$ - произвольное подмножество $A \times B$. $F \subset A \times B$. Обозначения: $(a, b) \in F$, $b \in F(a)$, $F: A \matching B$.
+\end{definition}
+
+\begin{definition}
+	Отображение - однозначное соответствие. Т.е. $(\forall a \in A) (\exists! b \in B)$. Обозначения: $(a, b) \in F$, $b = F(a)$, $F: A \rightarrow B$. 
+\end{definition}
+
+\begin{definition}
+	Инъективное соответствие: $(a \neq b) \Rightarrow (F(a) \cap F(b) = \varnothing)$.
+\end{definition}
+
+\begin{definition}
+	Инъекция - это инъективное отображение. $(a \neq b) \Rightarrow (F(a) \neq F(b))$.
+\end{definition}
+
+\begin{definition}
+	Сюръективное соответствие: $(\forall b \in B) (\exists a \in A)$ $b \in F(a)$.
+\end{definition}
+
+\begin{definition}
+	Сюръекция - сюръективное отображение. $(\forall b \in B) (\exists a \in A)$ $b = F(a)$.
+\end{definition}
+
+\begin{definition}
+	Биекция - отображение, являющееся и инъекцией и сюръекцией одновременно (взаимно однозначное соответствие). $((\forall a \in A) (\exists! b \in B) \ (a, b) \in F) \land ((\forall b \in B) (\exists! a \in A) \ (a, b) \in F)$.
+\end{definition}
+
+\begin{definition}
+	Пусть $S \subset A$. Образ множества $S$ - это $F(S) = \bigcup\limits_{a \in S} F(a)$
+\end{definition}
+
+\begin{definition}
+	Пусть $T \subset B$. Прообраз множества $T$ - это $F^{-1}(T) = \{a \ | \ F(a) \cap T \neq \varnothing\}$
+\end{definition}
+
+
+\subsection{Композиция соответствий}
+\begin{definition}
+	Пусть $F: A \matching B$, $G: B \matching C$. Композиция $F$ и $G$ - это соответствие $G \circ F: A \matching C$, т.ч. $(x, z) \in G \circ F \Rightarrow (\exists y \in B) \ ((x, y) \in F \land (y, z) \in G)$.
+\end{definition}
+
+\begin{note}
+	Если $F$ и $G$ - отображения, то $G \circ F(x) = G(F(x))$.
+\end{note}
+
+\begin{note}
+	Композиция соответствий ассоциативна. $H \circ (G \circ F) = (H \circ G) \circ F$.
+\end{note}
+
+\begin{definition}
+	Существует отображение $F$ из множества $A$ в $A$, т.ч. $(\forall a \in A)$ $F(a) = a$.
+\end{definition}
