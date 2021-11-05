@@ -1,0 +1,107 @@
+\section{4-я лекция}
+
+\subsection{Понятия l-value, r-value}
+Сейчас введём их неформально: l-value - то, что может стоять слева от оператора присваивания, r-value - то, что не может.
+
+\begin{Verbatim}[tabsize=4]
+	int x = 1; \\ OK
+	x + 5 = 10; \\ Wrong
+	10 = x; \\ Wrong
+	++x = 5; \\ OK
+	x++ = 5; \\ Wrong
+	(a = b) = c; \\ OK
+	(x + 5)++; \\ Wrong
+	(x = 5)++; \\ OK
+	(x = x + 1) = 10; \\ OK
+\end{Verbatim}
+
+\begin{note}
+	Знак равно не всегда оператор. Например:
+	\begin{Verbatim}[tabsize=4]
+		int x = 5;
+	\end{Verbatim}
+	
+	Тут = - не оператор, а просто символ.
+\end{note}
+
+
+\subsection{Тернарный оператор}
+\begin{Verbatim}[tabsize=4]
+	a ? b : c
+\end{Verbatim}
+
+Если $a$ - true, то вычисляется и возвращается $b$ ($c$ даже не вычисляется). Иначе вычисляется и возвращается $c$ ($b$ даже не вычисляется).
+
+Тернарный оператор возвращает l-value, тогда и только тогда, когда и $b$ и $c$ - l-value.
+
+\begin{Verbatim}[tabsize=4]
+	(a == 1 ? x++ : ++x) = 10; // Wrong
+\end{Verbatim}
+
+Это будет CE, независимо от того, чему равно $a$, т. к. ++x - r-value.
+
+
+\subsection{Оператор <<запятая>>}
+
+\begin{Verbatim}[tabsize=4]
+	x = 1, y = 3, ++z;
+\end{Verbatim}
+
+Оператор <<запятая>> сначала высчитывает левый операнд, потом высчитывает правый операнд и возвращает то, что вернул правый операнд.
+
+\begin{Verbatim}[tabsize=4]
+	(x = 5, ++x) = 1; \\ OK
+\end{Verbatim}
+
+Однако <<запятая>> не всегда оператор.
+
+\begin{Verbatim}[tabsize=4]
+	int x = 2, y = 1; \\ Not operator
+	f(x, y); \\ Not operator
+\end{Verbatim}
+
+Приоритет оператора <<запятая>> самый маленький из всех.
+
+\begin{Verbatim}[tabsize=4]
+	int x = 1, 5; \\ x = 1, but return value - 5;
+\end{Verbatim}
+
+
+\subsection{Subscription (обращение по индексу)}
+
+\begin{Verbatim}[tabsize=4]
+	a[5]; \\ l-value
+\end{Verbatim}
+
+Оператор <<квадратные скобки>> - обращение по индексу (возвращает l-value).
+
+
+\subsection{Sizeof}
+
+Sizeof(x) - это оператор, возвращающий кол-во байт, которое занимает переменная $x$. При этом компилятор не вычисляет само значение $x$.
+
+\begin{Verbatim}[tabsize=4]
+	cout << sizeof(++x); \\ 4
+\end{Verbatim} 
+
+От этой команды $x$ не поменяется. Sizeof() вычислят кол-во байт, которое занимала бы переменная, будь она посчитанная.
+
+
+\subsection{Приоритет операторов}
+
+\href{https://en.cppreference.com/w/cpp/language/operator_precedence}{Таблица приоритетов}
+
+
+\subsection{Ошибка компиляции (CE)}
+
+Бывает трёх видов: лексические, синтаксические и семантические.
+
+
+
+
+
+
+
+
+
+

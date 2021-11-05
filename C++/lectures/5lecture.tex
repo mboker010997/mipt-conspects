@@ -1,0 +1,100 @@
+\section{5-я лекция}
+
+\subsection{Runtime Error (RE)}
+
+\begin{Verbatim}[tabsize=4]
+int a = 5 / 0;
+\end{Verbatim}
+
+Целочисленное деление на ноль - это RE.
+
+Segmentation fault (Segfault) - ошибка сегментирования (обращение к элементу массива, которого не было, и не только) - тоже RE. Это ошибка на уровне системы, не на уровне языка (также как Floating point exception).
+
+\subsection{Undefined Behaviour}
+
+\begin{itemize}
+	\item Обращение за границу массива (segfault - частный случай UB)
+	\item Переполнение int (классный пример представлен в \href{https://youtu.be/swyvjLAV9-k?t=1461}{лекции})
+\end{itemize}
+
+\subsection{Unspecified Behaviour}
+Подробнее в \href{https://youtu.be/swyvjLAV9-k?t=1702}{лекции}
+
+\begin{Verbatim}[tabsize=4]
+	int f() {
+		cout << 1;
+		return 1;
+	}
+	
+	int g() {
+		cout << 2;
+		return 2;
+	}
+	
+	int h() {
+		cout << 3;
+		return 3;
+	}
+	
+	int main() {
+		cout << f() * g() + h(); \\ ***5
+	}
+\end{Verbatim}
+
+В конце точно выведется 5, а что будет до этого - неизвестно (f, g, h могут считаться в каком угодно порядке). Порядок вычислений не то же самое, что приоритет операторов.
+
+
+\subsection{Указатели}
+
+У каждой переменной есть свой адрес (\&a - получить адрес переменной a). Возвращаемый тип этой операции - $T^{*}$, где $T$ - тип переменной. Операнд к \& должен быть l-value. Указатель - переменная, хранящая адрес другой переменной (тип $T^{*}$). Можно взять адрес указателя, т. к. указатель - тоже переменная.
+
+\begin{Verbatim}[tabsize=4]
+	int** p = &(&a); \\ Wrong (&a - r-value)
+\end{Verbatim}
+
+Обратная операция - * (по адресу вернуть значение, хранящееся по этому адресу). *: $T^{*} \rightarrow T$.
+
+\begin{Verbatim}[tabsize=4]
+	int* a, b;
+\end{Verbatim}
+
+В итоге, $a$ - это указатель, $b$ - нет. Поэтому не рекомендуется объявлять несколько переменных на одной строке.
+
+\begin{Verbatim}[tabsize=4]
+	int a = 1;
+	int* p = &a;
+	{
+		int b = 2;
+		p = &b;
+	}
+	cout << *p; \\ UB
+\end{Verbatim}
+
+\subsection{Реализация swap}
+
+\begin{Verbatim}[tabsize=4]
+	void swap(int* a, int* b) {
+		int t = *a;
+		*a = *b;
+		*b = t;
+	}
+\end{Verbatim}
+
+
+\subsection{Операции над указателями}
+
+\begin{itemize}
+	\item Инкремент - перейти в следующую ячейку памяти, сдвинутую на sizeof(T) байт
+	\item Декремент
+	\item Сложение с int - сделать инкремент n раз
+	\item Разность указателей - сколько между ними шагов размера sizeof(T).
+\end{itemize}
+
+
+
+
+
+
+
+
+
